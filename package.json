@@ -1,6 +1,6 @@
 {
     "name": "simplified",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "a very easy and fast way to declare a restful api",
     "main": "index.js",
     "scripts": {
