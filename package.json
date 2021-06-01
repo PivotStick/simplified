@@ -1,6 +1,6 @@
 {
-    "name": "easy-api",
-    "version": "1.0.1",
+    "name": "simply",
+    "version": "1.0.0",
     "description": "a very easy and fast way to declare a restful api",
     "main": "index.js",
     "scripts": {
@@ -15,13 +15,13 @@
         "easy"
     ],
     "bugs": {
-        "url": "https://github.com/PivotStick/easy-api/issues"
+        "url": "https://github.com/PivotStick/simply/issues"
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/PivotStick/easy-api.git"
+        "url": "git+https://github.com/PivotStick/simply.git"
     },
     "license": "ISC",
     "author": "Maxime Di Natale <maxime.di-natale@epitech.eu>",
-    "homepage": "https://github.com/PivotStick/easy-api/blob/master/README.md"
+    "homepage": "https://github.com/PivotStick/simply/blob/master/README.md"
 }
