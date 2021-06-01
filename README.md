@@ -1,8 +1,8 @@
-# EASY API
+# SIMPLIFIED
 
 ## Overview
 
-This library will make your life easy.
+This library will make your life easy, just for fun!
 
 **users.controller.js** exemple of a full controller file
 
@@ -55,7 +55,7 @@ this.delete = {
 This will automatically generate the directories and demo files in them
 
 ```js
-const App = require("easy-api");
+const App = require("simplified");
 
 new App({
     architecture: {
@@ -75,7 +75,7 @@ This will open an express server on the port **3500** by default.
 This can be changed with the _"port"_ property.
 
 ```js
-const App = require("easy-api");
+const App = require("simplified");
 
 new App({
     port: 4000,
@@ -94,7 +94,7 @@ You can change the controllers name folder.
 The middlewares folder can also be changed.
 
 ```js
-const App = require("easy-api");
+const App = require("simplified");
 
 new App({
     port: 4000,
