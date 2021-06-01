@@ -1,0 +1,23 @@
+{
+    "name": "easy-api",
+    "version": "1.0.0",
+    "description": "a very easy and fast way to declare a restful api",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "dependencies": {
+        "express": "^4.17.1"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.7"
+    },
+    "keywords": [
+        "express",
+        "fun",
+        "easy"
+    ],
+    "license": "ISC",
+    "author": "Maxime Di Natale <maxime.di-natale@epitech.eu>",
+    "homepage": "https://github.com/PivotStick/mongo-graphql"
+}
