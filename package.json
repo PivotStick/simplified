@@ -9,15 +9,19 @@
     "dependencies": {
         "express": "^4.17.1"
     },
-    "devDependencies": {
-        "nodemon": "^2.0.7"
-    },
     "keywords": [
         "express",
         "fun",
         "easy"
     ],
+    "bugs": {
+        "url": "https://github.com/PivotStick/easy-api/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/PivotStick/easy-api.git"
+    },
     "license": "ISC",
     "author": "Maxime Di Natale <maxime.di-natale@epitech.eu>",
-    "homepage": "https://github.com/PivotStick/mongo-graphql"
+    "homepage": "https://github.com/PivotStick/easy-api/blob/master/README.md"
 }

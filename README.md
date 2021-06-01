@@ -50,7 +50,7 @@ this.delete = {
 }
 ```
 
-## Quick start
+## Quick start
 
 This will automatically generate the directories and demo files in them
 
