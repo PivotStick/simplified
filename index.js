@@ -6,6 +6,7 @@ class App {
     /**
      * @param {{
      *  port?: number;
+     *  beforeControllers?: import("express").Handler[]
      *  errorHandler?: import("express").ErrorRequestHandler
      *  architecture: {
      *      [__dirname]: { [k: string]: object | RegExp }
@@ -32,6 +33,7 @@ class App {
         const { controllers, middlewares } = project.initialize();
 
         const app = new ExpressInitializer({
+            beforeControllers: this.configs.beforeControllers,
             controllers,
             middlewares,
         });

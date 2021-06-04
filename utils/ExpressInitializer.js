@@ -6,9 +6,10 @@ const ProjectInitializer = require("./ProjectInitializer");
 module.exports = class ExpressInitializer {
     app = express();
 
-    constructor(resources) {
-        this.controllers = resources.controllers;
-        this.middlewares = resources.middlewares;
+    constructor({ beforeControllers = [], controllers, middlewares }) {
+        this.beforeControllers = beforeControllers;
+        this.controllers = controllers;
+        this.middlewares = middlewares;
     }
 
     initControllers() {
@@ -19,6 +20,8 @@ module.exports = class ExpressInitializer {
         );
 
         this.app.use(express.json());
+
+        for (const handler of this.beforeControllers) this.app.use(handler);
 
         controllers.forEach(({ prefix, router }) => {
             this.app.use(prefix, router);
