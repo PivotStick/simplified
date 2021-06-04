@@ -1,3 +1,4 @@
+const { Router } = require("express");
 const express = require("express");
 const getRoutersFromControllers = require("../functions/getRoutersFromControllers");
 const ProjectInitializer = require("./ProjectInitializer");
@@ -8,8 +9,6 @@ module.exports = class ExpressInitializer {
     constructor(resources) {
         this.controllers = resources.controllers;
         this.middlewares = resources.middlewares;
-
-        this.initControllers();
     }
 
     initControllers() {
@@ -19,9 +18,24 @@ module.exports = class ExpressInitializer {
             this.middlewares
         );
 
+        this.app.use(express.json());
+
         controllers.forEach(({ prefix, router }) => {
             this.app.use(prefix, router);
         });
+
+        this.app.use((req, res, next) => {
+            const error = new Error("Route not found");
+            error.status = 404;
+            next(error);
+        });
+    }
+
+    /**
+     * @param {import("express").ErrorRequestHandler} handler
+     */
+    errorHandler(handler) {
+        this.app.use(handler);
     }
 
     listen(port = 3500) {

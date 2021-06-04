@@ -3,7 +3,13 @@ const path = require("path");
 
 const controllerHandler = (controller) => async (req, res, next) => {
     try {
-        const { status = 200, json = {} } = (await controller(req)) || {};
+        const payload = (await controller(req)) || {};
+        const { status = 200, json = {}, headers = {} } = payload;
+
+        for (const name in headers) {
+            const value = headers[name];
+            res.setHeader(name, value);
+        }
         res.status(status).json(json);
     } catch (error) {
         next(error);

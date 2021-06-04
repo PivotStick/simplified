@@ -3,6 +3,19 @@ const ExpressInitializer = require("./utils/ExpressInitializer");
 const ProjectInitializer = require("./utils/ProjectInitializer");
 
 class App {
+    /**
+     * @param {{
+     *  port?: number;
+     *  errorHandler?: import("express").ErrorRequestHandler
+     *  architecture: {
+     *      [__dirname]: { [k: string]: object | RegExp }
+     *  };
+     *  endpoints?: {
+     *      controllers?: string
+     *      middlewares?: string
+     *  };
+     * }} configs
+     */
     constructor(configs = {}) {
         if (!configs.architecture) throw new ArchitectureRequired();
 
@@ -22,6 +35,18 @@ class App {
             controllers,
             middlewares,
         });
+
+        app.initControllers();
+
+        app.errorHandler(
+            this.configs.errorHandler ||
+                ((err, req, res, next) => {
+                    res.status(err.status || 400).json({
+                        [req.method]: req.url,
+                        error: { ...err },
+                    });
+                })
+        );
 
         const port = await app.listen(this.configs.port);
 
